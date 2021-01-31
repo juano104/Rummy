@@ -59,6 +59,11 @@ public class Player {
         System.out.println(this.name + " (" + hand.size() + ")" + "{" + hand + '}');
         //return this.name + " (" + hand.size() + ")" + "{" + hand + '}';
     }
+    
+    public void showInfo() {
+        System.out.println(this.name + ", Points(" + this.points + ")");
+        //return this.name + " (" + hand.size() + ")" + "{" + hand + '}';
+    }
 
     public void pickFromDeck(ArrayList<Card> deck) {
         hand.add(deck.remove(0)); //grabs first card from the deck
