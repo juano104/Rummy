@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author juani
  */
 public class Pit {
+
     private ArrayList<Card> pit;
 
     public ArrayList<Card> getPit() {
@@ -25,13 +26,17 @@ public class Pit {
     public Pit() {
         this.pit = new ArrayList<>();
     }
-    
+
     public void showPit() {
         System.out.println("Pit (" + pit.size() + "){" + pit + '}');
-        
     }
-    
-    
-    
-    
+
+    public void showTopCard() {
+        if (pit.size() != 0) {
+            System.out.println("The pit has: " + pit.get(pit.size() - 1));
+        } else {
+            System.out.println("Empty pit");
+        }
+    }
+
 }

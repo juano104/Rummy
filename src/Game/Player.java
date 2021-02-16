@@ -5,6 +5,7 @@
  */
 package Game;
 
+import Rummy.*;
 import java.util.ArrayList;
 
 /**
@@ -64,14 +65,30 @@ public class Player {
         System.out.println(this.name + ", Points(" + this.points + ")");
         //return this.name + " (" + hand.size() + ")" + "{" + hand + '}';
     }
+    
+    //here i start making the player's decisions
 
     public void pickFromDeck(ArrayList<Card> deck) {
         hand.add(deck.remove(0)); //grabs first card from the deck
 
     }
+    
+    public void pickFromPit(ArrayList<Card> pit) {
+        hand.add(pit.remove(0)); //grabs first card from the deck
+
+    }
 
     public void putInPit(ArrayList<Card> pit, int position) {
         pit.add(hand.remove(position - 1));
+    }
+    
+    /*public void setPlay(ArrayList<Card> play){
+        Play p = new Play(play);
+        
+    }*/
+    
+    public void meld(Card card, ArrayList<Card> play){
+        
     }
 
 }

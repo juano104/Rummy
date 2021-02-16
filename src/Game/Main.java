@@ -5,6 +5,7 @@
  */
 package Game;
 
+import Rummy.*;
 import java.util.Scanner;
 
 /**
@@ -73,8 +74,7 @@ public class Main {
         //here we choose the pit and the position of which card we want to put in from our hand
         p1.putInPit(p.getPit(), 1);
         p.showPit();
-        p1.showHand();
-        p1.getHand();*/
+        p1.showHand();*/
     }
 
 }
