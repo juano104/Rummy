@@ -14,14 +14,14 @@ import java.util.ArrayList;
  */
 public class Player {
 
-    private boolean turn;
+    //private boolean turn;
     private String name;
     private int points;
     private ArrayList<Card> hand;
 
-    public boolean isTurn() {
+    /*public boolean isTurn() {
         return turn;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -35,9 +35,9 @@ public class Player {
         return hand;
     }
 
-    public void setTurn(boolean turn) {
+    /*public void setTurn(boolean turn) {
         this.turn = turn;
-    }
+    }*/
 
     public void setName(String name) {
         this.name = name;
@@ -53,6 +53,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+        this.points = 0;
     }
 
 

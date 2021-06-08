@@ -34,7 +34,7 @@ public class Deck {
         List<String> ranks = Card.getValidRanks();
 
         deck = new ArrayList<>();
-
+        
         for (String suit : suits) {
             for (String rank : ranks) {
                 deck.add(new Card(rank, suit));

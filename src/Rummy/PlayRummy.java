@@ -16,6 +16,7 @@ public class PlayRummy {
     //boolean play = false;
 
     public void playRummy() {
+        boolean turn = true;
         //here make the game
         //making scanners to input the players
         System.out.println("Insert two players:");
@@ -43,11 +44,11 @@ public class PlayRummy {
         System.out.println(p1.getName() + " has " + p1.getHand().size() + " cards");
         System.out.println(p2.getName() + " has " + p2.getHand().size() + " cards");
         System.out.println(p1.getName() + " will go first!");
-        p1.setTurn(true);
+        //p1.setTurn(true);
 
         //player 1 starts playing
         while (true) {
-            while (p1.isTurn()) {
+            while (turn) {
                 if (p1.getHand().isEmpty()) {
                     System.out.println("P1 wins");
                     break;
@@ -55,7 +56,7 @@ public class PlayRummy {
                 p1.showHand();
                 p.showTopCard();
 
-                System.out.println("Where will you pick from?\n1-Deck Pile\n2-Pit Pile");
+                System.out.println(p1.getName() + ", where will you pick from?\n1-Deck Pile\n2-Pit Pile");
                 int answer = validRange(1, 2);
                 //draw accordingly
                 if (answer == 1) {
@@ -88,17 +89,41 @@ public class PlayRummy {
                         p1.putInPit(p.getPit(), card);
                         p.showTopCard();
                         p1.showHand();
-                        p1.setTurn(false);
-                        p2.setTurn(true);
+                        /*p1.setTurn(false);
+                        p2.setTurn(true);*/
+                        turn = false;
                         break;
                     } else {
                         System.out.println("P1 WIN");
                         break;
                     }
 
+                } else if (play == 2) {
+                    System.out.println("What type of play?");
+                    System.out.println("1-Stair\n2-Series");
+                    int type = validRange(1, 2);
+                    if (type == 1) {
+                        System.out.println("You will have to input the position of the 3 cards:");
+                        for (int x = 0; x < 3; x++) {
+                            int num = x + 1;
+                            System.out.println("Card number " + num);
+                            int card = validRange(1, p1.getHand().size());
+
+                        }
+
+                    } else {
+                        System.out.println("You will have to input the position of the 3 cards:");
+                        for (int x = 0; x < 3; x++) {
+                            System.out.println("Card number " + x);
+                            int card = validRange(1, p1.getHand().size());
+                        }
+
+                    }
+
                 }
 
-            } while(p2.isTurn()) {
+            }
+            while (!turn) {
                 if (p2.getHand().isEmpty()) {
                     System.out.println("P2 wins");
                     break;
@@ -106,7 +131,7 @@ public class PlayRummy {
                 p2.showHand();
                 p.showTopCard();
 
-                System.out.println("Where will you pick from?\n1-Deck Pile\n2-Pit Pile");
+                System.out.println(p2.getName() + ", where will you pick from?\n1-Deck Pile\n2-Pit Pile");
                 int answer = validRange(1, 2);
                 //draw accordingly
                 if (answer == 1) {
@@ -139,12 +164,29 @@ public class PlayRummy {
                         p2.putInPit(p.getPit(), card);
                         p.showTopCard();
                         p2.showHand();
-                        p2.setTurn(false);
-                        p1.setTurn(true);
+                        /*p2.setTurn(false);
+                        p1.setTurn(true);*/
+                        turn = true;
                         break;
                     } else {
                         System.out.println("P2 WIN");
                         break;
+                    }
+
+                } else if (play == 2) {
+                    System.out.println("What type of play?");
+                    System.out.println("1-Stair\n2-Series");
+                    int type = validRange(1, 2);
+                    if (type == 1) {
+                        System.out.println("You will have to input the position of the 3 cards:");
+                        for (int x = 0; x < 3; x++) {
+                            int num = x + 1;
+                            System.out.println("Card number " + num);
+                            int card = validRange(1, p1.getHand().size());
+                        }
+
+                    } else {
+
                     }
 
                 }
@@ -163,9 +205,9 @@ public class PlayRummy {
                 if (intInput >= min && intInput <= max) {
                     return intInput;
                 } else {
-                    System.out.println("Please enter a number inside the range " + min + " " + max);
+                    System.out.println("Please enter a number between " + min + " and " + max);
                 }
-            } catch (NumberFormatException ime) {
+            } catch (NumberFormatException e) {
                 System.out.println("Please type a positive number");
             }
         }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Play { // this class isnt to play the game, its to create plays inside the board
 
-    /*private ArrayList<Card> play;
+    private ArrayList<Card> play;
 
     public ArrayList<Card> getPlay() {
         return play;
@@ -24,17 +24,17 @@ public class Play { // this class isnt to play the game, its to create plays ins
         this.play = play;
     }
 
-    public Play(ArrayList<Card> play) {
-        this.play = play;
+    public Play() {
+
     }
 
-    public boolean checkStair() {//3, 4, 5 of diamonds -- minimun 3 cards
+    public boolean checkStair(ArrayList<Card> c1, ArrayList<Card> c2, ArrayList<Card> c3) {//3, 4, 5 of diamonds -- minimun 3 cards
 
         int stair = 0;
         for (int x = 0; x < play.size(); x++) {
-            if(play.get(x)){
+            /*if(play.get(x)){
                 stair++;
-            }
+            }*/
         }
 
         if (stair > 2) {
@@ -48,6 +48,6 @@ public class Play { // this class isnt to play the game, its to create plays ins
     public boolean checkSeries() {// 3 of diamonds, 3 of spades, 3 of clubs -- minimum 3 cards
         return false;
 
-    }*/
+    }
 
 }
